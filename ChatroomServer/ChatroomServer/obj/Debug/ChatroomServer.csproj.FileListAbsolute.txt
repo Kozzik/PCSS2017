@@ -8,3 +8,13 @@ C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017\ChatroomServer\ChatroomServe
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.CoreCompileInputs.cache
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.exe
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.pdb
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.exe.config
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.exe
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.pdb
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csprojResolveAssemblyReference.cache
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.Form1.resources
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.Properties.Resources.resources
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.GenerateResource.Cache
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.CoreCompileInputs.cache
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.exe
+C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.pdb
