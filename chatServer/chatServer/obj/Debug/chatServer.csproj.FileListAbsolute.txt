@@ -1,0 +1,9 @@
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\bin\Debug\chatServer.exe.config
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\bin\Debug\chatServer.exe
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\bin\Debug\chatServer.pdb
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.csprojResolveAssemblyReference.cache
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.Properties.Resources.resources
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.csproj.GenerateResource.Cache
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.csproj.CoreCompileInputs.cache
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.exe
+X:\Documents\University\Courses\2nd year\PSCPP\MicroProject\PCSS2017_ChatroomServer\chatServer\chatServer\obj\Debug\chatServer.pdb
