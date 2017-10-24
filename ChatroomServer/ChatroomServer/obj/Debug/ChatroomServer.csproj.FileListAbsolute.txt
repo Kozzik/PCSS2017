@@ -18,3 +18,13 @@ C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServe
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.CoreCompileInputs.cache
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.exe
 C:\Users\gamer\Desktop\AAU\Programming\Git\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.pdb
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.exe.config
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.exe
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\bin\Debug\ChatroomServer.pdb
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csprojResolveAssemblyReference.cache
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.Form1.resources
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.Properties.Resources.resources
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.GenerateResource.Cache
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.csproj.CoreCompileInputs.cache
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.exe
+X:\Documents\University\Courses\2nd year\PSCPP\PCSS2017\PCSS2017_ChatroomServer\ChatroomServer\ChatroomServer\obj\Debug\ChatroomServer.pdb
