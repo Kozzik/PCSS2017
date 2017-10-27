@@ -26,7 +26,8 @@ namespace chatServer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            Application.Exit();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

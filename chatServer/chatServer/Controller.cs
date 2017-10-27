@@ -69,7 +69,7 @@ namespace chatServer
 
                 // shows content on the console.
                 mainWindow.addNewUser(sData);
-
+                //Console.WriteLine(sData);
                 // to write something back.
                 // sWriter.WriteLine("Meaningfull things here");
                 // sWriter.Flush();
