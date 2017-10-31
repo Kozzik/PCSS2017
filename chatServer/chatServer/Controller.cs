@@ -16,6 +16,14 @@ namespace chatServer
         private TcpListener server;
         private Boolean isRunning;
         private Form1 mainWindow;
+        private int UID = 0;
+        private int RID = 0;
+        private List<User> users = new List<User>();
+        private List<Room> rooms = new List<Room>();
+
+
+
+        
 
         public Controller()
         {
@@ -75,12 +83,31 @@ namespace chatServer
                 sData = sReader.ReadLine();
 
                 // shows content on the console.
-                mainWindow.addNewUser(sData);
+                addUser(sData, UID);
+               
+
                 //Console.WriteLine(sData);
                 // to write something back.
                 // sWriter.WriteLine("Meaningfull things here");
                 // sWriter.Flush();
             }
+
+        }
+
+        public void addUser(string n, int i)
+        {
+            User u = new User(n, i);
+            users.Add(u);
+            UID++;
+            System.Console.WriteLine(u.getName());
+        }
+
+        public void createRoom(string n, int i, User u)
+        {
+            Room r = new Room(n, i);
+            rooms.Add(r);
+            RID++;
+            r.joinUser(u);
         }
 
     }

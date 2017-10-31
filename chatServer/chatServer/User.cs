@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace chatServer
 {
-    class User
+    public class User
     {
+        string name;
+        int ID;
+
+        public User(string n, int i)
+        {
+        name = n;
+        ID = i;
+
+        }
+        
+        public string getName()
+        {
+            return name;
+        }
+
     }
 }

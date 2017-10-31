@@ -15,6 +15,7 @@ namespace chatServer
     {
         String newUser;
         String uName;
+        int userID;
         
         public Form1()
         {
@@ -31,41 +32,7 @@ namespace chatServer
 
         }
 
-        private void addListItem(object obj)
-        {
-            if (InvokeRequired)
-            {
-                ObjectDelegate method = new ObjectDelegate(addListItem);
-                Invoke(method, obj);
-                return;
-            }
-
-            newUser = (string)obj;
-            listView1.Items.Add(new ListViewItem(new[] { newUser }));
-        }
-
-        private delegate void ObjectDelegate(object obj);
-
-        public void addNewUser(string u)
-        {
-            uName = u;
-            ObjectDelegate del = new ObjectDelegate(addListItem);
-
-            del.Invoke(uName);
-
-            Thread th = new Thread(new ParameterizedThreadStart(WorkThread));
-            th.Start(del);
-            th.Abort();
-        }
-
-        private void WorkThread(object obj)
-        {
-            // we would then unbox the obj into the delegate
-            ObjectDelegate del = (ObjectDelegate)obj;
-  
-            // and invoke it like before
-            del.Invoke(uName);
-        }
+        
 
 }
 }
