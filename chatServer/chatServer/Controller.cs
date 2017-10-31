@@ -19,9 +19,16 @@ namespace chatServer
 
         public Controller()
         {
+
+            var GUImain = new Thread(initGUI);
+            GUImain.Start();
+
+        }
+
+        private void initGUI()
+        {
             mainWindow = new Form1();
             Application.Run(mainWindow);
-
         }
 
         public void serverSetup(int port)
@@ -62,7 +69,7 @@ namespace chatServer
             Boolean bClientConnected = true;
             String sData = null;
 
-            while (bClientConnected)
+            if (bClientConnected)
             {
                 // reads from stream
                 sData = sReader.ReadLine();
