@@ -20,10 +20,10 @@ namespace chatServer
         private int RID = 0;
         private List<User> users = new List<User>();
         private List<Room> rooms = new List<Room>();
-
-
-
-        
+        private Boolean bClientConnected;
+        private String sData;
+        private StreamWriter sWriter;
+        private StreamReader sReader;
 
         public Controller()
         {
@@ -69,22 +69,18 @@ namespace chatServer
             TcpClient client = (TcpClient)obj;
 
             // sets two streams
-            StreamWriter sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
-            StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
+            sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
+            sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
             // you could use the NetworkStream to read and write, 
             // but there is no forcing flush, even when requested
 
-            Boolean bClientConnected = true;
-            String sData = null;
+            bClientConnected = true;
+            sData = null;
 
             if (bClientConnected)
             {
-                // reads from stream
-                sData = sReader.ReadLine();
 
-                // shows content on the console.
-                addUser(sData, UID);
-               
+                addUser();
 
                 //Console.WriteLine(sData);
                 // to write something back.
@@ -94,12 +90,13 @@ namespace chatServer
 
         }
 
-        public void addUser(string n, int i)
+        public void addUser()
         {
-            User u = new User(n, i);
+            sData = sReader.ReadLine();
+            User u = new User(sData, UID);
             users.Add(u);
             UID++;
-            System.Console.WriteLine(u.getName());
+            Console.WriteLine(u.getName());
         }
 
         public void createRoom(string n, int i, User u)
