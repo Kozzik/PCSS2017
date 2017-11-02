@@ -21,5 +21,9 @@ namespace chatServer
         {
             participants.Add(u);
         }
+        public string getName()
+        {
+            return name;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace chatServer
         private String sData;
         private StreamWriter sWriter;
         private StreamReader sReader;
+        private Commands commands;
 
         public Controller()
         {
@@ -32,6 +33,12 @@ namespace chatServer
             GUImain.Start();
 
         }
+        
+        [Serializable]private enum Commands
+        {
+            createRoom, joinRoom
+        }
+
 
         private void initGUI()
         {
@@ -70,6 +77,7 @@ namespace chatServer
 
             // sets two streams
             sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
+            string inputString = "";
             sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
             // you could use the NetworkStream to read and write, 
             // but there is no forcing flush, even when requested
@@ -79,8 +87,25 @@ namespace chatServer
 
             if (bClientConnected)
             {
-
                 addUser();
+
+                inputString = sReader.ReadLine();
+
+                if (Enum.TryParse(inputString, out commands))
+                {
+                    switch (commands)
+                    {
+                        case Commands.createRoom:
+                            createRoom(sReader.ReadLine(), RID);
+                            break;
+
+                        case Commands.joinRoom:
+                            joinRoom()
+                            break;
+                    }
+                }
+
+                
 
                 //Console.WriteLine(sData);
                 // to write something back.
@@ -99,12 +124,12 @@ namespace chatServer
             Console.WriteLine(u.getName());
         }
 
-        public void createRoom(string n, int i, User u)
+        public void createRoom(string n, int i)
         {
             Room r = new Room(n, i);
             rooms.Add(r);
             RID++;
-            r.joinUser(u);
+            Console.WriteLine(r.getName());
         }
 
     }
