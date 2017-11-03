@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace chatServer
 {
-    class Room
+    public class Room
     {
         private string name;
         private List<User> participants = new List<User>();

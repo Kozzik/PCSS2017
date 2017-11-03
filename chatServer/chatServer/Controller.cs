@@ -100,7 +100,7 @@ namespace chatServer
                             break;
 
                         case Commands.joinRoom:
-                            joinRoom()
+                            //joinRoom();
                             break;
                     }
                 }
@@ -122,6 +122,8 @@ namespace chatServer
             users.Add(u);
             UID++;
             Console.WriteLine(u.getName());
+            sWriter.WriteLine(u.getID());
+            sWriter.Flush();
         }
 
         public void createRoom(string n, int i)
@@ -129,7 +131,14 @@ namespace chatServer
             Room r = new Room(n, i);
             rooms.Add(r);
             RID++;
+            users.ForEach(x => this.sWriter.WriteLine(n));
+            sWriter.Flush();
             Console.WriteLine(r.getName());
+        }
+
+        public void joinRoom(User u, Room r)
+        {
+            
         }
 
     }
