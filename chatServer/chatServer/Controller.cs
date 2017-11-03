@@ -88,7 +88,8 @@ namespace chatServer
 
             if (bClientConnected)
             {
-                addUser();
+                addUser(client);
+
 
                 inputString = sReader.ReadLine();
 
@@ -116,10 +117,10 @@ namespace chatServer
 
         }
 
-        public void addUser()
+        public void addUser(TcpClient tcp)
         {
             sData = sReader.ReadLine();
-            User u = new User(sData, UID);
+            User u = new User(sData, UID, tcp);
             users.Add(u);
             UID++;
             Console.WriteLine(u.getName());
@@ -134,6 +135,7 @@ namespace chatServer
             RID++;
             clients.ForEach(x => sWriter.WriteLine(n));
             Console.WriteLine(r.getName());
+            broadcastClients(n);
         }
 
         public void joinRoom(User u, Room r)
@@ -141,5 +143,9 @@ namespace chatServer
             
         }
 
+        public void broadcastClients(string s)
+        {
+            users.ForEach(x => x.sendData(s));
+        }
     }
 }
