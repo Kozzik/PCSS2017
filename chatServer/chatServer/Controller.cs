@@ -18,6 +18,7 @@ namespace chatServer
         private Form1 mainWindow;
         private int UID = 0;
         private int RID = 0;
+        private List<TcpClient> clients = new List<TcpClient>();
         private List<User> users = new List<User>();
         private List<Room> rooms = new List<Room>();
         private Boolean bClientConnected;
@@ -74,7 +75,7 @@ namespace chatServer
         {
             // retrieve client from parameter passed to thread
             TcpClient client = (TcpClient)obj;
-
+            clients.Add(client);
             // sets two streams
             sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
             string inputString = "";
@@ -131,8 +132,7 @@ namespace chatServer
             Room r = new Room(n, i);
             rooms.Add(r);
             RID++;
-            users.ForEach(x => this.sWriter.WriteLine(n));
-            sWriter.Flush();
+            clients.ForEach(x => sWriter.WriteLine(n));
             Console.WriteLine(r.getName());
         }
 
