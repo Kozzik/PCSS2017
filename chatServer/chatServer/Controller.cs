@@ -18,7 +18,8 @@ namespace chatServer
         private Form1 mainWindow;
         private int UID = 0;
         private int RID = 0;
-        private List<TcpClient> clients = new List<TcpClient>();
+        //private List<TcpClient> clients = new List<TcpClient>();
+        private Dictionary<int, NetworkStream> clients = new Dictionary<int, NetworkStream>();
         private List<User> users = new List<User>();
         private List<Room> rooms = new List<Room>();
         private Boolean bClientConnected;
@@ -26,7 +27,8 @@ namespace chatServer
         private StreamWriter sWriter;
         private StreamReader sReader;
         private Commands commands;
-
+        private int counter;
+        private int roomCounter = 0;
         public Controller()
         {
 
@@ -75,11 +77,13 @@ namespace chatServer
         {
             // retrieve client from parameter passed to thread
             TcpClient client = (TcpClient)obj;
-            clients.Add(client);
+            NetworkStream networkStream = ((TcpClient)obj).GetStream();
+            clients.Add(counter, ((TcpClient)obj).GetStream());
+            counter++;
             // sets two streams
-            sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
+            sWriter = new StreamWriter(networkStream, Encoding.ASCII);
             string inputString = "";
-            sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
+            sReader = new StreamReader(networkStream, Encoding.ASCII);
             // you could use the NetworkStream to read and write, 
             // but there is no forcing flush, even when requested
 
@@ -99,7 +103,8 @@ namespace chatServer
                         switch (commands)
                         {
                             case Commands.createRoom:
-                                createRoom(sReader.ReadLine(), RID);
+                                createRoom("Room"+roomCounter, RID);
+                                roomCounter++;
                                 inputString = "";
                                 break;
 
@@ -154,12 +159,18 @@ namespace chatServer
 
         public void createRoom(string n, int i)
         {
-            Room r = new Room(n, i);
+            Room r = new Room(n,i);
             rooms.Add(r);
             RID++;
-            clients.ForEach(x => sWriter.WriteLine(n));
+            //clients.ForEach(x => sWriter.WriteLine(n));
+            foreach(KeyValuePair<int, NetworkStream> entry in clients)
+            {
+                StreamWriter writer = new StreamWriter(entry.Value, Encoding.ASCII);
+                writer.WriteLine(n);
+                writer.Flush();
+            }
             Console.WriteLine(r.getName());
-            broadcastClients(n);
+            //broadcastClients(n);
         }
 
         public void joinRoom(User u, Room r)
@@ -169,7 +180,7 @@ namespace chatServer
 
         public void broadcastClients(string s)
         {
-            users.ForEach(x => x.sendData(s));
+           // users.ForEach(x => x.sendData(s));
         }
     }
 }
