@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace chatServer
         private Dictionary<int, NetworkStream> clients = new Dictionary<int, NetworkStream>();
         private List<User> users = new List<User>();
         private List<Room> rooms = new List<Room>();
+        private List<string> blast = new List<string>();
         private Boolean bClientConnected;
         private String sData;
         private StreamWriter sWriter;
@@ -29,9 +31,11 @@ namespace chatServer
         private Commands commands;
         private int counter;
         private int roomCounter = 0;
+
         public Controller()
         {
 
+            fillBlastIt();
             var GUImain = new Thread(initGUI);
             GUImain.Start();
 
@@ -39,7 +43,7 @@ namespace chatServer
         
         [Serializable]private enum Commands
         {
-            createRoom, joinRoom
+            createRoom, joinRoom, handleMessage
         }
 
 
@@ -117,7 +121,7 @@ namespace chatServer
                                     if (tmp.getID().ToString() == sReader.ReadLine())
                                     {
                                         u = tmp;
-                                        return;
+                                        break;
                                     }
                                 }
 
@@ -127,11 +131,15 @@ namespace chatServer
                                     if (tmp.getID().ToString() == sReader.ReadLine())
                                     {
                                         r = tmp;
-                                        return;
+                                        break;
                                     }
                                 }
                                 joinRoom(u, r);
                                 inputString = "";
+                                break;
+
+                            case Commands.handleMessage:
+                                rooms.ForEach(x => x.broadcastMessage());
                                 break;
                         }
                     }
@@ -159,7 +167,7 @@ namespace chatServer
 
         public void createRoom(string n, int i)
         {
-            Room r = new Room(n,i);
+            Room r = new Room(n,i, this);
             rooms.Add(r);
             RID++;
             //clients.ForEach(x => sWriter.WriteLine(n));
@@ -181,6 +189,31 @@ namespace chatServer
         public void broadcastClients(string s)
         {
            // users.ForEach(x => x.sendData(s));
+        }
+
+        public void fillBlastIt()
+        {
+            blast.Add("Gum");
+            blast.Add("Blast it?");
+            blast.Add("Another");
+            blast.Add("Brick");
+            blast.Add("In");
+            blast.Add("The");
+            blast.Add("Wall");
+            blast.Add("Time");
+            blast.Add("is");
+            blast.Add("Passing by");
+
+        }
+
+        public IList getBlasted()
+        {
+            return blast;
+        }
+
+        public string randomBlast(int n)
+        {
+            return blast[n];
         }
     }
 }

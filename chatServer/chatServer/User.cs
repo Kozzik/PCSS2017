@@ -37,5 +37,10 @@ namespace chatServer
             sWriter.WriteLine(s);
             sWriter.Flush();
         } */
+
+        public TcpClient getClient()
+        {
+            return client;
+        }
     }
 }
