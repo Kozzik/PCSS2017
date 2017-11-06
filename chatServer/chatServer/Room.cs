@@ -25,5 +25,10 @@ namespace chatServer
         {
             return name;
         }
+
+        public int getID()
+        {
+            return ID;
+        }
     }
 }

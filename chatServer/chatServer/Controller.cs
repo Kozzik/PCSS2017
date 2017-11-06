@@ -104,7 +104,29 @@ namespace chatServer
                                 break;
 
                             case Commands.joinRoom:
-                                //joinRoom();
+                                User u = null;
+                                Room r = null;
+                                for(int i = 0; i<users.Count; i++)
+                                {
+                                    User tmp = users[i];
+                                    if (tmp.getID().ToString() == sReader.ReadLine())
+                                    {
+                                        u = tmp;
+                                        return;
+                                    }
+                                }
+
+                                for (int i = 0; i < rooms.Count; i++)
+                                {
+                                    Room tmp = rooms[i];
+                                    if (tmp.getID().ToString() == sReader.ReadLine())
+                                    {
+                                        r = tmp;
+                                        return;
+                                    }
+                                }
+                                joinRoom(u, r);
+                                inputString = "";
                                 break;
                         }
                     }
@@ -142,7 +164,7 @@ namespace chatServer
 
         public void joinRoom(User u, Room r)
         {
-            
+            r.joinUser(u);
         }
 
         public void broadcastClients(string s)
