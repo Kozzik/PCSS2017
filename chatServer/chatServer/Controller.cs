@@ -90,23 +90,25 @@ namespace chatServer
             {
                 addUser(client);
 
-
-                inputString = sReader.ReadLine();
-
-                if (Enum.TryParse(inputString, out commands))
+                while (bClientConnected)
                 {
-                    switch (commands)
-                    {
-                        case Commands.createRoom:
-                            createRoom(sReader.ReadLine(), RID);
-                            break;
+                    inputString = sReader.ReadLine();
 
-                        case Commands.joinRoom:
-                            //joinRoom();
-                            break;
+                    if (Enum.TryParse(inputString, out commands))
+                    {
+                        switch (commands)
+                        {
+                            case Commands.createRoom:
+                                createRoom(sReader.ReadLine(), RID);
+                                inputString = "";
+                                break;
+
+                            case Commands.joinRoom:
+                                //joinRoom();
+                                break;
+                        }
                     }
                 }
-
                 
 
                 //Console.WriteLine(sData);
