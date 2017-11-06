@@ -19,7 +19,6 @@ namespace chatServer
         private Form1 mainWindow;
         private int UID = 0;
         private int RID = 0;
-        //private List<TcpClient> clients = new List<TcpClient>();
         private Dictionary<int, NetworkStream> clients = new Dictionary<int, NetworkStream>();
         private List<User> users = new List<User>();
         private List<Room> rooms = new List<Room>();
@@ -34,19 +33,16 @@ namespace chatServer
 
         public Controller()
         {
-
             fillBlastIt();
             var GUImain = new Thread(initGUI);
             GUImain.Start();
 
         }
-        
+
         [Serializable]private enum Commands
         {
             createRoom, joinRoom, handleMessage
         }
-
-
         private void initGUI()
         {
             mainWindow = new Form1();
@@ -62,35 +58,24 @@ namespace chatServer
 
             LoopClients();
         }
-
         public void LoopClients()
         {
             while (isRunning)
             {
-                // wait for client connection
                 TcpClient newClient = server.AcceptTcpClient();
-
-                // client found.
-                // create a thread to handle communication
                 Thread t = new Thread(new ParameterizedThreadStart(HandleClient));
                 t.Start(newClient);
             }
         }
-
         public void HandleClient(object obj)
         {
-            // retrieve client from parameter passed to thread
             TcpClient client = (TcpClient)obj;
             NetworkStream networkStream = ((TcpClient)obj).GetStream();
             clients.Add(counter, ((TcpClient)obj).GetStream());
             counter++;
-            // sets two streams
             sWriter = new StreamWriter(networkStream, Encoding.ASCII);
             string inputString = "";
             sReader = new StreamReader(networkStream, Encoding.ASCII);
-            // you could use the NetworkStream to read and write, 
-            // but there is no forcing flush, even when requested
-
             bClientConnected = true;
             sData = null;
 
@@ -144,12 +129,6 @@ namespace chatServer
                         }
                     }
                 }
-                
-
-                //Console.WriteLine(sData);
-                // to write something back.
-                // sWriter.WriteLine("Meaningfull things here");
-                // sWriter.Flush();
             }
 
         }
@@ -170,7 +149,6 @@ namespace chatServer
             Room r = new Room(n,i, this);
             rooms.Add(r);
             RID++;
-            //clients.ForEach(x => sWriter.WriteLine(n));
             foreach(KeyValuePair<int, NetworkStream> entry in clients)
             {
                 StreamWriter writer = new StreamWriter(entry.Value, Encoding.ASCII);
@@ -178,19 +156,12 @@ namespace chatServer
                 writer.Flush();
             }
             Console.WriteLine(r.getName());
-            //broadcastClients(n);
         }
 
         public void joinRoom(User u, Room r)
         {
             r.joinUser(u);
         }
-
-        public void broadcastClients(string s)
-        {
-           // users.ForEach(x => x.sendData(s));
-        }
-
         public void fillBlastIt()
         {
             blast.Add("Gum");

@@ -30,14 +30,6 @@ namespace chatServer
         {
             return ID;
         }
-/*
-        public void sendData(string s)
-        {
-            StreamWriter sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
-            sWriter.WriteLine(s);
-            sWriter.Flush();
-        } */
-
         public TcpClient getClient()
         {
             return client;
